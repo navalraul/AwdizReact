@@ -8,6 +8,8 @@ import Welcome from './components/Welcome';
 import Login from './components/Login';
 import Counter from './components/Counter';
 import Section from './components/Section';
+import TypeUseEffect from './components/TypeUseEffect';
+import TypeUseEffect2 from './components/TypeUseEffect2';
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
 
       <Navbar />
       <Routes>
+        <Route exact path='/type-2' element={ <TypeUseEffect2/>} />
+        <Route exact path='/type-1' element={ <TypeUseEffect/>} />
         <Route exact path='/changeSection' element={ <Section />}/>
         <Route exact path='/counter' element={ <Counter />}/>
         <Route exact path='/' element= { <Home /> }/>
