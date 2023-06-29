@@ -10,6 +10,8 @@ import Counter from './components/Counter';
 import Section from './components/Section';
 import TypeUseEffect from './components/TypeUseEffect';
 import TypeUseEffect2 from './components/TypeUseEffect2';
+import TypeUseEffect3 from './components/TypeUseEffect3';
+import TypeUseEffect4 from './components/TypeUseEffect4';
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
 
       <Navbar />
       <Routes>
+        <Route exact path='/type-4' element={ <TypeUseEffect4 />} />
+        <Route exact path='/type-3' element={ <TypeUseEffect3 />} />
         <Route exact path='/type-2' element={ <TypeUseEffect2/>} />
         <Route exact path='/type-1' element={ <TypeUseEffect/>} />
         <Route exact path='/changeSection' element={ <Section />}/>
