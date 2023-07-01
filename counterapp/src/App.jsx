@@ -12,14 +12,30 @@ import TypeUseEffect from './components/TypeUseEffect';
 import TypeUseEffect2 from './components/TypeUseEffect2';
 import TypeUseEffect3 from './components/TypeUseEffect3';
 import TypeUseEffect4 from './components/TypeUseEffect4';
+import Params from './components/Params';
+import Singleproduct from './components/Singleproduct';
+import Map from './components/Map';
+import Wrapper from './components/Wrapper';
+import { useState } from 'react';
+import DeclarativeWay from './components/DeclarativeWay';
+import Stylecompo from './components/Stylecompo';
 
 
 function App() {
+
+  const [myUsers, setMyUsers] = useState(["Rahul", "Nand", "hsabjxha"])
+
   return (
     <div>
 
       <Navbar />
       <Routes>
+        <Route exact path='/style-compo' element={ <Stylecompo />} />
+        <Route exact path='/declative-way' element={ <DeclarativeWay />} />
+        <Route exact path='/wrapper' element={ <Wrapper />} />
+        <Route exact path='/map' element={<Map myUsers= {myUsers} setMyUsers= {setMyUsers} myName= {"Navnath"} kuchBhi= {["Naval"]} />} />
+        <Route exact path='/single-product/:naval' element={ <Singleproduct/> } />
+        <Route exact path='/params' element={ <Params />} />
         <Route exact path='/type-4' element={ <TypeUseEffect4 />} />
         <Route exact path='/type-3' element={ <TypeUseEffect3 />} />
         <Route exact path='/type-2' element={ <TypeUseEffect2/>} />
