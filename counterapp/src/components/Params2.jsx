@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-function Params () {
+function Params2 () {
+
 
     const router = useNavigate();
 
     function goto() {
-        router('/single-product/841')
+        router('/single-page/982')
     }
     return (
         <div>
@@ -14,4 +15,4 @@ function Params () {
     )
 }
 
-export default Params;
+export default Params2;

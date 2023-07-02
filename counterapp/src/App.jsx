@@ -19,6 +19,8 @@ import Wrapper from './components/Wrapper';
 import { useState } from 'react';
 import DeclarativeWay from './components/DeclarativeWay';
 import Stylecompo from './components/Stylecompo';
+import Params2 from './components/Params2';
+import SinglePage from './components/SinglePage';
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
 
       <Navbar />
       <Routes>
+        <Route exact path='/single-page/:id' element={ <SinglePage />} />
+        <Route exact path='/params2' element={ <Params2 />} />
         <Route exact path='/style-compo' element={ <Stylecompo />} />
         <Route exact path='/declative-way' element={ <DeclarativeWay />} />
         <Route exact path='/wrapper' element={ <Wrapper />} />
