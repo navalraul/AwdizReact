@@ -24,6 +24,7 @@ import SinglePage from './components/SinglePage';
 import DynamicStyles from './components/DynamicStyles';
 import DynamicClasses from './components/DynamicClasses';
 import ChildrenProp from './components/ChildrenProp';
+import Formone from './components/Formone';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 
       <Navbar />
       <Routes>
+        <Route exact path='/form-one' element={ <Formone /> } />
         <Route exact path='/children-prop' element={ <ChildrenProp />} />
         <Route exact path='/dynamic-classes' element={ <DynamicClasses />} />
         <Route exact path='/dynamic-style' element={ <DynamicStyles />} /> 
@@ -58,7 +60,7 @@ function App() {
       </Routes>
 
       
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }
