@@ -25,6 +25,8 @@ import DynamicStyles from './components/DynamicStyles';
 import DynamicClasses from './components/DynamicClasses';
 import ChildrenProp from './components/ChildrenProp';
 import Formone from './components/Formone';
+import FormSingleState from './components/FormSingleState';
+import UseCallback from './components/UseCallback';
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
 
       <Navbar />
       <Routes>
+        <Route exact path='/use-callback' element={<UseCallback />} />
+        <Route exact path='/form-single-state' element={ <FormSingleState />} />
         <Route exact path='/form-one' element={ <Formone /> } />
         <Route exact path='/children-prop' element={ <ChildrenProp />} />
         <Route exact path='/dynamic-classes' element={ <DynamicClasses />} />
