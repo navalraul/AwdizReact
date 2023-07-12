@@ -29,6 +29,7 @@ import FormSingleState from './components/FormSingleState';
 import UseCallback from './components/UseCallback';
 import UseMemo from './components/UseMemo';
 import UseReducer from './components/UseReducer';
+import ProductsFromBackend from './components/ProductsFromBackend';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
 
       <Navbar />
       <Routes>
+        <Route exact path='/product-from-backend' element= {<ProductsFromBackend />} />
         <Route exact path='/use-reducer' element={ <UseReducer />} />
         <Route exact path='/use-memo' element={ <UseMemo />} />
         <Route exact path='/use-callback' element={<UseCallback />} />
