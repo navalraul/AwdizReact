@@ -4,27 +4,56 @@ import { useParams } from 'react-router-dom';
 
 const Product = () => {
 
-
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+    const [currentUserEmail, setCurrentUserEmail] = useState("");
     const [products, setProducts] = useState([]);
     const [singleProduct, setSingleProduct]= useState({});
     const {id} = useParams();
 
+    
+    
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(json => setProducts(json))
+        .then(res => res.json())
+        .then(json => setProducts(json))
     }, [])
-
+    
     useEffect(() => {
         if(id && products.length) {
             const result = products.find((products) => products.id == id);
-
+            
             setSingleProduct(result)
         }
     },[id, products])
-
-
+    
+    
+    useEffect (() => {
+        var user = JSON.parse(localStorage.getItem("Current-user"));
+        console.log(user, "usr")
+        if (user) {
+            setIsUserLoggedIn(true);
+            setCurrentUserEmail(user.email)
+        }
+    }, [])
+    
     console.log(singleProduct, "-singleProduct")
+    
+    function addCart() {
+        if (isUserLoggedIn) {
+            const users = JSON.parse(localStorage.getItem("Users"));
+            
+            for (var i = 0; i < users.length; i++) {
+                if(users[i].email == currentUserEmail) {
+                    users[i].cart.push(singleProduct);
+                    localStorage.setItem("Users", JSON.stringify(users));
+                    break;
+                }
+            }
+        } else {
+            alert("You cant add product before login...")
+        }
+    }
+
 
   return (
     <div>
@@ -35,6 +64,7 @@ const Product = () => {
             <div style={{ width: "50%", height: "700px", border: "5px solid blue" }}>
                 <h1>Name :{singleProduct.title}</h1>
                 <h2>Price : {singleProduct.price}</h2>
+                <button onClick={addCart}>Add to Cart</button>
             </div>
         </div>
     </div>

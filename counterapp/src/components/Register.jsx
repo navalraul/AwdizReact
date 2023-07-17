@@ -16,7 +16,12 @@ const Register = () => {
         if(userData.name && userData.email && userData.password) {
 
             const array = JSON.parse(localStorage.getItem("Users")) || [];
-            const userDataObj = {name: userData.name, email:userData.email, password:userData.password};
+            const userDataObj = {
+              name: userData.name,
+              email:userData.email, 
+              password:userData.password, 
+              cart : []
+            };
 
             array.push(userDataObj);
 

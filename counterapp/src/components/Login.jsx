@@ -21,15 +21,21 @@ function Login () {
             for (var i = 0; i < users.length; i++) {
                 if(users[i].email == userData.email && users[i].password == userData.password) {
                     flag = true;
+                    break;
                 }
             }
 
             if( flag == false ) {
                 return alert("Credentials not matched..")
+            } else {
+                localStorage.setItem("Current-user", JSON.stringify(userData));
+                alert("Login successfull.");
+                setUserData({ email: "", password: "" });
+                router('/')
             }
-            alert("Login Successfull...")
-            setUserData({ email: "", password: "" })
-            router('/product-from-backend')
+            // alert("Login Successfull...")
+            // setUserData({ email: "", password: "" })
+            // router('/')
         } else {
             alert("All fields are mandatory..")
         }
