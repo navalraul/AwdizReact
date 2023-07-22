@@ -1,28 +1,26 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/Auth.context";
 
 
 
 function Home() {
 
-
+    const { state, login,logout} = useContext(AuthContext);
+    console.log(state, "state from home")
+    
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
     const router = useNavigate();
 
     useEffect(() => {
-        var user = JSON.parse(localStorage.getItem("Current-user"));
-        console.log(user, "usr")
-        if(user) {
+        if(state?.user) {
             setIsUserLoggedIn(true);
+        } else {
+            setIsUserLoggedIn(false)
         }
-    },[])
+    },[state])
 
-
-    function logout () {
-        localStorage.removeItem("Current-user");
-        setIsUserLoggedIn(false);
-        alert("Logout Successfull")
-    }
 
     function addCart() {
         if(isUserLoggedIn) {
@@ -35,10 +33,11 @@ function Home() {
     
     return (
         <>
-        <div>
-            { isUserLoggedIn ? <div onClick={logout}>Logout</div>: <button onClick={ () => router('/login')}>Login</button>}
+        <div style={{ textAlign: 'center'}}>
+            <h1>Welcome to Awdiz Class</h1>
+            { isUserLoggedIn ? <div onClick={ () => logout()}>Logout</div>: <button onClick={ () => router('/login')}>Login</button>}
         </div>
-        <button onClick={addCart}> Add to Cart </button>
+        
         </>
     )
 }

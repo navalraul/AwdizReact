@@ -32,6 +32,7 @@ import UseReducer from './components/UseReducer';
 import ProductsFromBackend from './components/ProductsFromBackend';
 import Product from './components/Product';
 import Register from './components/Register';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
 
       <Navbar />
       <Routes>
+        <Route exact path='/cart' element={<Cart />} />
         <Route exact path='/register' element={<Register />} />
         <Route exact path='/product/:id' element={<Product />} />
         <Route exact path='/product-from-backend' element= {<ProductsFromBackend />} />

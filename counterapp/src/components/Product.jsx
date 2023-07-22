@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Product = () => {
 
@@ -9,6 +9,7 @@ const Product = () => {
     const [products, setProducts] = useState([]);
     const [singleProduct, setSingleProduct]= useState({});
     const {id} = useParams();
+    const router = useNavigate();
 
     
     
@@ -49,6 +50,8 @@ const Product = () => {
                     break;
                 }
             }
+            alert("Product added successfully to cart!")
+            router('/product-from-backend')
         } else {
             alert("You cant add product before login...")
         }

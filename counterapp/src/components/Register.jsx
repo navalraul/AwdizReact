@@ -15,7 +15,7 @@ const Register = () => {
         event.preventDefault();
         if(userData.name && userData.email && userData.password) {
 
-            const array = JSON.parse(localStorage.getItem("Users")) || [];
+            const Ls = JSON.parse(localStorage.getItem("Users")) || [];
             const userDataObj = {
               name: userData.name,
               email:userData.email, 
@@ -23,9 +23,9 @@ const Register = () => {
               cart : []
             };
 
-            array.push(userDataObj);
+            Ls.push(userDataObj);
 
-            localStorage.setItem("Users",JSON.stringify(array));
+            localStorage.setItem("Users",JSON.stringify(Ls));
             alert("Registration Successfull")
             router('/login')
         } else {
