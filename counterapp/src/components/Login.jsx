@@ -8,6 +8,7 @@ function Login () {
 
     const { state, login} = useContext(AuthContext);
     // console.log(state, "state from Login")
+    // console.log(login, "login here")
 
     const [userData, setUserData] = useState({email:"", password: ""});
     const router = useNavigate();

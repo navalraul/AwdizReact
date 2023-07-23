@@ -8,13 +8,13 @@ import { AuthContext } from "../context/Auth.context";
 function Home() {
 
     const { state, login,logout} = useContext(AuthContext);
-    console.log(state, "state from home")
+    // console.log(state, "state from home")
     
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
     const router = useNavigate();
 
     useEffect(() => {
-        if(state?.user) {
+        if(state?.user?.email) {
             setIsUserLoggedIn(true);
         } else {
             setIsUserLoggedIn(false)
@@ -22,14 +22,14 @@ function Home() {
     },[state])
 
 
-    function addCart() {
-        if(isUserLoggedIn) {
+    // function addCart() {
+    //     if(isUserLoggedIn) {
 
-            alert("You are logged in you can add to cart")
-        } else {
-            alert("Please Login first")
-        }
-    }
+    //         alert("You are logged in you can add to cart")
+    //     } else {
+    //         alert("Please Login first")
+    //     }
+    // }
     
     return (
         <>

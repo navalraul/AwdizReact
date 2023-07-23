@@ -7,13 +7,13 @@ import { AuthContext } from "../context/Auth.context";
 function Navbar() {
 
     const { state, login,logout} = useContext(AuthContext);
-    console.log(state,"-state from navbar")
+    // console.log(state,"-state from navbar")
 
     const [user, setUser] = useState({});
     const router = useNavigate();
 
     useEffect (() => {
-        if(state?.user) {
+        if(state?.user?.email) {
             setUser(state?.user)
         } else {
             setUser({});
