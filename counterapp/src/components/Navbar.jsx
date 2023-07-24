@@ -31,7 +31,7 @@ function Navbar() {
             {user?.email ?
             <>
                 <h3 onClick={ ()=> router('/product-from-backend')}>Products</h3>
-                <h3 style={{ marginLeft:'40px'}}>Profile</h3>
+                <h3 onClick={() => router('/profile')} style={{ marginLeft:'40px'}}>{user.name}</h3>
                 <h3 onClick={logout} style={{ marginLeft:'40px'}}>Logout</h3>
                 <h3 onClick={ () => router('/cart')} style={{ marginLeft:'40px'}}>Cart</h3>
             </>
